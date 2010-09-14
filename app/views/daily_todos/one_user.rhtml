@@ -66,8 +66,8 @@
           <% todo.daily_todo_entries.each_with_index do |daily_todo_entry, i| %>
             <tr>
               <td style="vertical-align:middle;width:15%;" align="center">
-                <%= daily_todo_entry.begin.strftime("%H:%M") if daily_todo_entry.begin %> -
-                <%= daily_todo_entry.end.strftime("%H:%M") if daily_todo_entry.end %><br />
+                <%=  (daily_todo_entry.begin.strftime("%H:%M") == "00:00")?daily_todo_entry.begin.strftime("--:--"):daily_todo_entry.begin.strftime("%H:%M")%> -
+                <%=  (daily_todo_entry.end.strftime("%H:%M") == "00:00")?daily_todo_entry.end.strftime("--:--"):daily_todo_entry.end.strftime("%H:%M")%>
               </td>
               <td style="vertical-align:middle;width:35%;"><%= textilizable daily_todo_entry.plan %></td>
               <td style="vertical-align:middle;width:35%;">
